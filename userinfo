@@ -1,5 +1,7 @@
 #!/bin/python
 
+import sys
+
 passwd="/etc/passwd"
 
 users={}
@@ -16,4 +18,11 @@ with open(passwd,"r") as f:
             "shell":user[6]
         }
 
-print(users)
+if len(sys.argv)<=1:
+    for name in users:
+        print(name)
+elif len(sys.argv)==2:
+    for field in users[sys.argv[1]]:
+        print("%s:%s"%(field,users[sys.argv[1]][field]))
+elif len(sys.argv)==3:
+    print(users[sys.argv[1]][sys.argv[2]])
