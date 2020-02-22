@@ -4,4 +4,4 @@ passwd="/etc/passwd"
 
 with open(passwd,"r") as f:
     for line in f:
-        print(line)
+        print(line.strip('\n'))
