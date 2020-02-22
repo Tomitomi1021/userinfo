@@ -1,0 +1,6 @@
+#!/bin/python
+
+passwd="/etc/passwd"
+
+with open(passwd,"r") as f:
+    print(f.read())
