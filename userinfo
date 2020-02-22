@@ -2,6 +2,18 @@
 
 passwd="/etc/passwd"
 
+users={}
+
 with open(passwd,"r") as f:
     for line in f:
-        print(line.strip('\n'))
+        user=line.strip('\n').split(':')
+        users[user[0]]={
+            "password":user[1],
+            "uid":user[2],
+            "gid":user[3],
+            "comment":user[4],
+            "dir":user[5],
+            "shell":user[6]
+        }
+
+print(users)
